@@ -21,6 +21,15 @@ function getUserId() {
   updateUserId(userId)
 }
 
+function walmartGetSessionId() {
+  return prompt("func=sessionId");
+}
+
+function getSessionId() {
+  var sessionId = walmartGetSessionId();
+  updateSessionId(sessionId)
+}
+
 function updateStatus(statusString) {
   console.log("Status: " + statusString)
   document.getElementById("status").innerHTML = statusString;
@@ -29,6 +38,11 @@ function updateStatus(statusString) {
 function updateUserId(userIdString) {
   console.log("User ID: " + userIdString)
   document.getElementById("userId").innerHTML = userIdString;
+}
+
+function updateSessionId(sessionIdString) {
+  console.log("Session ID: " + sessionIdString)
+  document.getElementById("sessionId").innerHTML = sessionIdString;
 }
 
 function showNav() {
@@ -86,7 +100,13 @@ body {
 	  	<div class="w3-cell w3-container">
 			<p id="userId">Unknown</p>
 	  	</div>
-	</div>  
+	</div>
+    <div class="w3-cell-row">
+        <h3>Session ID</h3>
+          <div class="w3-cell w3-container">
+            <p id="sessionId">Unknown</p>
+          </div>
+    </div>
 	<hr>
 	<div class="w3-cell-row">
 		<button type="button" onclick="hideNav()">Hide navigation bar</button>
@@ -107,6 +127,9 @@ body {
 	<div class="w3-cell-row">
 		<button type="button" onclick="getUserId()">Get User Id</button>
 	</div>
+    <div class="w3-cell-row">
+        <button type="button" onclick="getSessionId()">Get Session Id</button>
+    </div>
 	<hr>
 	<div class="w3-cell-row">
 	    <label for="title">Title:</label> 
@@ -121,4 +144,4 @@ body {
 	</div>
 </div>
 </body>
-</html> 
+</html>
