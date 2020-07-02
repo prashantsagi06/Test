@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3pro.css">
+<script>
+function walmartUICommand(requestString) {
+  WalmartMobile.uiCommand(requestString);
+}
+
+function walmartSignIn() {
+  WalmartMobile.signin("isSignedIn", "isSignedOut");
+}
+
+function walmartGetUserId() {
+  return prompt("func=userId");
+}
+
+function getUserId() {
+  var userId = walmartGetUserId();
+  updateUserId(userId)
+}
+
+function updateStatus(statusString) {
+  console.log("Status: " + statusString)
+  document.getElementById("status").innerHTML = statusString;
+}
+
+function updateUserId(userIdString) {
+  console.log("User ID: " + userIdString)
+  document.getElementById("userId").innerHTML = userIdString;
+}
+
+function showNav() {
+  walmartUICommand("showNav");
+}
+
+function hideNav() {
+  walmartUICommand("hideNav");
+}
+
+function isSignedIn() { 
+  updateStatus("Signed in"); 
+}
+
+function isSignedOut() { 
+  updateStatus("Signed out");
+}
+
+function exitSparkCamp() {
+  walmartUICommand("exit");
+}
+
+function updateTitle() {
+  var newTitle = document.getElementById("title").value;
+  walmartUICommand("updateTitle:" + newTitle);
+}
+
+function routeDeepLink() {
+  var deepLink = document.getElementById("deepLink").value;
+  WalmartMobile.routeDeepLink(deepLink);
+}
+</script>
+<style>
+body {
+  background-color: lightblue;
+}
+</style>
+</head>
+<body>
+<header class="w3-container w3-card">
+	<h2>Spark Camp Web Container Demo</h2>
+</header>
+
+<div class="w3-container">
+	<hr>
+	<div class="w3-cell-row">
+		<h3>Status</h3>
+	  	<div class="w3-cell w3-container">
+			<p id="status">Unknown</p>
+	  	</div>
+	</div>  
+	<hr>
+	<div class="w3-cell-row">
+		<h3>User ID</h3>
+	  	<div class="w3-cell w3-container">
+			<p id="userId">Unknown</p>
+	  	</div>
+	</div>  
+	<hr>
+	<div class="w3-cell-row">
+		<button type="button" onclick="hideNav()">Hide navigation bar</button>
+	</div>
+	<hr>
+	<div class="w3-cell-row">
+		<button type="button" onclick="showNav()">Show navigation bar</button>
+	</div>
+	<hr>
+	<div class="w3-cell-row">
+		<button type="button" onclick="walmartSignIn()">Sign in</button>
+	</div>
+	<hr>
+	<div class="w3-cell-row">
+		<button type="button" onclick="exitSparkCamp()">Exit</button>
+	</div>
+	<hr>
+	<div class="w3-cell-row">
+		<button type="button" onclick="getUserId()">Get User Id</button>
+	</div>
+	<hr>
+	<div class="w3-cell-row">
+	    <label for="title">Title:</label> 
+  	    <input type="text" id="title" name="title"> 
+		<button type="button" onclick="updateTitle()">Update</button>
+	</div>
+	<hr>
+	<div class="w3-cell-row">
+	    <label for="deepLink">Deep link:</label> 
+  	    <input type="text" id="deepLink" name="deepLink" value="walmart://browse/aHR0cHM6Ly93d3cud2FsbWFydC5jb20vYnJvd3NlP2NhdF9pZD0zOTQ0Xzc3NjIyXzgzNzU5MDFfMTIzMDQxNQ=="> 
+		<button type="button" onclick="routeDeepLink()">Route</button>
+	</div>
+</div>
+</body>
+</html> 
