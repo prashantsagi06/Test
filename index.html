@@ -72,7 +72,8 @@ function updateTitle() {
 
 function routeDeepLink() {
   var deepLink = document.getElementById("deepLink").value;
-  WalmartMobile.routeDeepLink(deepLink);
+  window.open(deepLink);
+  //WalmartMobile.routeDeepLink(deepLink);
 }
 </script>
 <style>
